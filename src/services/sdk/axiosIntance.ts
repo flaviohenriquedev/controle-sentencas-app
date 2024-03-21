@@ -11,9 +11,9 @@ async function getToken() {
 }
 
 const endpoints = {
-    production: "https://controle-sentencas-app-git-frontend-heldertosta.vercel.app/",
+    production: "https://controle-sentencas-api-one.vercel.app/",
     develop: "https://controle-sentencas-app-git-frontend-heldertosta.vercel.app/",    
-    test: "https://controle-sentencas-app-git-frontend-heldertosta.vercel.app/"
+    test: "http://localhost:3001/"
 };
 
 export const baseURL = endpoints.production;
