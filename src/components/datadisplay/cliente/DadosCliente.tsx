@@ -32,7 +32,7 @@ export function DadosCliente() {
                        onClick={() => route.push('/manager')}/>
             </div>
             <S.Descricao>
-                Escritório de Advocacia
+                Stabile & Pessoa Advogados Associados
             </S.Descricao>
         </S.LogoContainer>
     )
