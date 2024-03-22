@@ -1,4 +1,5 @@
 import {ColunaTabelaType} from "@/types/ColunaTabelaType";
+import {TipoProcessoFactory} from "@/enum/TipoProcessoEnum";
 
 export const colunasTabelaProcessos = () => {
     const campos: ColunaTabelaType[] = [
@@ -8,7 +9,8 @@ export const colunasTabelaProcessos = () => {
         },
         {
             label: 'Tipo Processo',
-            field: 'tipoProcessoPrincipal'
+            field: 'tipoProcessoPrincipal',
+            factory: TipoProcessoFactory
         },
         {
             label: 'Cliente',

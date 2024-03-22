@@ -6,10 +6,14 @@ import {redirect} from "next/navigation";
 export default async function PrivateLayout({children}: { children: React.ReactNode }) {
     const session = await getServerSession(nextAuthOptions)
 
-    if (!session?.user.token) {
+    if (!session?.user?.token) {
         redirect("/")
     }
     
-    return <>{children}</>
-
+    return (
+        <div className={`w-screen h-screen`}>
+            {children}
+        </div>
+    )
+    
 }

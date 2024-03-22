@@ -4,7 +4,6 @@ import Image from "next/image";
 import Logo from "../../../../public/logo.png";
 import * as S from "./style"
 import {useRouter} from "next/navigation";
-import {Descricao} from "./style";
 
 export function DadosCliente() {
     const route = useRouter()

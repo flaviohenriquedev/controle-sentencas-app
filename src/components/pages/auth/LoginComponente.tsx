@@ -29,7 +29,7 @@ export function LoginComponente({loginOrForgotPass, setLoginOrForgotPass}: Props
             redirect: false
         })
         if (result?.error) {
-            return toast.error(result.error)
+            return toast.error('Usuário e/ou Senha incorretos.')
         }
         route.replace("/manager")
     }

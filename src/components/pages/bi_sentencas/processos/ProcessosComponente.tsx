@@ -36,20 +36,26 @@ export function ProcessosComponente() {
         setSkip(0)
     }, []);
     
+    useEffect(() => {
+        setTake(15)
+        setSkip(0)
+    }, []);
+    
     const fetchCadastros = useCallback(async () => {
-        return await funcaoFechCadastros(filtroEntidade, String(take), String(skip))
+        const response = await funcaoFechCadastros(filtroEntidade, String(take), String(skip))
             .then(res => {
                 return res.data
             }).catch((error) => {
-                toast.error(error.response.data.mensagem);
-            });
+                toast.error(error.message);
+            })
+        if (response) {
+            setListaEntidade(response.registros)
+            setTotalRegistros(response.quantRegistros);
+        }
     }, [filtroEntidade, skip, take])
     
     useEffect(() => {
-        fetchCadastros().then(response => {
-            setListaEntidade(response.registros)
-            setTotalRegistros(response.quantRegistros);
-        })
+        fetchCadastros()
     }, [filtroEntidade, skip, take, fetchCadastros]);
     
     async function handleSalvarEntidade() {
@@ -117,9 +123,10 @@ export function ProcessosComponente() {
             
             <TabelaComponente colunas={colunasTabelaProcessos()}
                               listaEntidade={listaEntidade}
+                              take={take}
                               skip={skip}
                               setSkip={setSkip}
-                              take={take}
+                              setTake={setTake}
                               totalRegistros={totalRegistros}
                               valorFiltro={filtroEntidade}
                               funcaoFiltro={handleFiltrar}

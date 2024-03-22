@@ -7,12 +7,14 @@ import {redirect} from "next/navigation";
 export default async function AuthLayout({children}: { children: React.ReactNode }) {
     const session = await getServerSession(nextAuthOptions)
     
-    if (session?.user.token) {
+    if (session?.user?.token) {
         redirect("/manager")
     }
 
-    return <div className={`w-screen h-screen bg-background-login`}>
-        {children}
-    </div>
-
+    return (
+        <div className={`w-screen h-screen bg-background-login`}>
+            {children}
+        </div>
+    )
+    
 }
