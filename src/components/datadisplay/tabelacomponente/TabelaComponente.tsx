@@ -177,9 +177,9 @@ export default function TabelaComponente({
                 </S.NenhumRegistro>
             )}
             
-            {listaEntidade && listaEntidade.length === 0 && !mostrarNenhumRegistro && (
-                <Loading tamanho={`sm`}/>
-            )}
+            {/*{listaEntidade && listaEntidade.length === 0 && !mostrarNenhumRegistro && (*/}
+            {/*    <Loading tamanho={`sm`}/>*/}
+            {/*)}*/}
             
             <Paginacao
                 skip={skip}
