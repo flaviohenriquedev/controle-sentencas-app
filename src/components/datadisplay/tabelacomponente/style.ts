@@ -1,14 +1,18 @@
 import tw from 'tailwind-styled-components'
 
-interface Props {
-    qtdColunas: number
-}
 
-export const Grid = tw.div<Props>`
-    ${p => 'grid-cols-' + p.qtdColunas}
-    
-    grid
-    
-    grid-rows-1
-    bg-blue-300
+export const NenhumRegistro = tw.div`
+    flex
+    items-center
+    justify-center
+    w-full
+    p-1
+    bg-primary/30
+    rounded-md
+`
+
+export const NenhumRegistroSpan = tw.span`
+    font-semibold
+    text-[9pt]
+    text-primary
 `

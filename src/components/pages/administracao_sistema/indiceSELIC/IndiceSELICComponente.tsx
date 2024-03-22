@@ -1,14 +1,11 @@
 'use client'
 
 import {Pagesection} from "@/components/layout/pagesection";
-import {LineContent} from "@/components/layout/linecontent/LineContent";
-import LabelContainer from "@/components/datainput/label/LabelContainer";
 import React, {useCallback, useEffect, useState} from "react";
 import {toast} from "react-hot-toast";
 import {EntidadePadrao} from "@/class/EntidadePadrao";
 import {AxiosResponse} from "axios";
 import TabelaComponente from "@/components/datadisplay/tabelacomponente/TabelaComponente";
-import {InputFilter} from "@/components/datainput/inputfilter/InputFilter";
 import {IndiceSELIC} from "@/class/IndiceSELIC";
 import {excluirIndiceSELIC, getIndiceSELIC, salvarIndiceSELIC} from "@/services/sdk/indiceSELIC";
 import {
@@ -110,14 +107,8 @@ export function IndiceSELICComponente() {
                                componenteCadastro={<IndiceSELICFormularioCadastro entidade={entidade}
                                                                                   editavel={editavel}/>}
         >
-            <LineContent id={String(`filtrar-${tituloPagina}`).toLowerCase()}>
-                <LabelContainer>
-                    <InputFilter onChange={(e) => setFiltroEntidade(e.target.value)}
-                                 value={filtroEntidade}/>
-                </LabelContainer>
-            </LineContent>
-            
-            <TabelaComponente colunas={indiceSELICColunasTabela()}
+        
+        <TabelaComponente colunas={indiceSELICColunasTabela()}
                               listaEntidade={listaEntidade}
                               skip={skip}
                               setSkip={setSkip}
