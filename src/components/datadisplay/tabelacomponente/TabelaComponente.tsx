@@ -171,11 +171,11 @@ export default function TabelaComponente({
                     {renderizarLinhas()}
                 </Table.Body>
             </Table.Container>
-            {mostrarNenhumRegistro && (
-                <S.NenhumRegistro>
-                    <S.NenhumRegistroSpan>Nenhum registro encontrado</S.NenhumRegistroSpan>
-                </S.NenhumRegistro>
-            )}
+            {/*{mostrarNenhumRegistro && (*/}
+            {/*    <S.NenhumRegistro>*/}
+            {/*        <S.NenhumRegistroSpan>Nenhum registro encontrado</S.NenhumRegistroSpan>*/}
+            {/*    </S.NenhumRegistro>*/}
+            {/*)}*/}
             
             {/*{listaEntidade && listaEntidade.length === 0 && !mostrarNenhumRegistro && (*/}
             {/*    <Loading tamanho={`sm`}/>*/}
