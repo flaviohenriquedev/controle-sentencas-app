@@ -38,7 +38,7 @@ export const Header = tw.header`
 
 
 export const Sidemenu = tw.aside<Props>`
-    ${p => p.expandido === 'true' ? 'min-w-[15rem]' : 'min-w-[4rem]'}
+    ${p => p.expandido === 'true' ? 'min-w-[16rem]' : 'min-w-[4rem]'}
     
     fixed
     
@@ -54,7 +54,7 @@ export const Sidemenu = tw.aside<Props>`
 `
 
 export const Children = tw.div<Props>`
-    ${p => p.expandido === 'true' ? 'ml-[15rem]' : 'ml-[5rem]'}
+    ${p => p.expandido === 'true' ? 'ml-[16rem]' : 'ml-[5rem]'}
 
     w-full
     h-full

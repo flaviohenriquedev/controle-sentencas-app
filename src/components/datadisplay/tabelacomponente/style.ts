@@ -12,7 +12,6 @@ export const NenhumRegistro = tw.div`
 `
 
 export const NenhumRegistroSpan = tw.span`
-    font-semibold
     text-[9pt]
     text-primary
 `

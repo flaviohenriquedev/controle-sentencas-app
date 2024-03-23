@@ -17,6 +17,6 @@ export const colunasTabelaProcessos = () => {
             field: 'cliente.nome'
         }
     ]
-    
+
     return campos
 }

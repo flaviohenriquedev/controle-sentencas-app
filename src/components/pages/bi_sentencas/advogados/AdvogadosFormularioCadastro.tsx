@@ -13,7 +13,8 @@ export function AdvogadosFormularioCadastro({entidade, editavel = false}: Props<
         <form>
             <LineContent>
                 <LabelContainer title={`Nome`}>
-                    <Input disabled={!editavel}
+                    <Input className={`w-80`}
+                           disabled={!editavel}
                            entidade={entidade}
                            field="nome"/>
                 </LabelContainer>

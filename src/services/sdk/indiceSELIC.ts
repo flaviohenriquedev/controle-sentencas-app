@@ -1,7 +1,7 @@
 import {axiosInstance} from "@/services";
 import {IndiceSELIC} from "@/class/IndiceSELIC";
 
-export const getIndiceSELIC = async (take?: string, skip?: string) => {
+export const getIndiceSELIC = async (filtro?: string, take?: string, skip?: string) => {
     try {
         let url = "/indicesSELIC";
         let params = '';

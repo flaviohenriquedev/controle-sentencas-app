@@ -23,7 +23,8 @@ export function ComarcasFormularioCadastro({entidade, editavel = false}: Props<a
                            entidade={entidade}
                            field={'tipo'}/>
                 </LabelContainer>
-                
+            </LineContent>
+            <LineContent>
                 <LabelContainer title={`Estado`}>
                     <Input disabled={!editavel}
                            entidade={entidade}

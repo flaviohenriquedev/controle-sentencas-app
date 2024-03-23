@@ -16,7 +16,7 @@ const endpoints = {
     test: "http://localhost:3001/"
 };
 
-export const baseURL = endpoints.production;
+export const baseURL = endpoints.test;
 
 export const axiosInstance = async (params: any) => {
     const token = await getToken();

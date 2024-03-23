@@ -1,7 +1,7 @@
 import {axiosInstance} from "@/services";
 import {IndiceINPC} from "@/class/IndiceINPC";
 
-export const getIndiceINPC = async (take?: string, skip?: string) => {
+export const getIndiceINPC = async (filtro?: string, take?: string, skip?: string) => {
     try {
         let url = "/indicesINPC";
         let params = '';

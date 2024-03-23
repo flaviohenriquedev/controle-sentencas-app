@@ -76,7 +76,8 @@ export function AppLayoutSideMenu({routes}: Props) {
     return (
         <S.Sidemenu expandido={expanded.toString()}>
             <div className={`flex ${expanded ? 'justify-between' : 'justify-center'} items-center w-full p-2 mb-5`}>
-                <InputFilter placeholder={`Buscar Menu`} className={`${expanded ? 'block' : 'hidden'}`}
+                <InputFilter placeholder={`Buscar Menu`}
+                             className={`${expanded ? 'block' : 'hidden'}`}
                              onChange={(e) => setSearchMenu(e.target.value)}/>
                 <button onClick={() => setExpanded(!expanded)}
                         className={`flex justify-center items-center w-8 h-8 p-1 bg-base-100 text-base-content rounded-full`}>

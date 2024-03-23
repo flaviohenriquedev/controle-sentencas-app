@@ -1,7 +1,7 @@
 import {axiosInstance} from "@/services";
 import {AliquotaINSS} from "@/class/AliquotaINSS";
 
-export const getAliquotasINSS = async (take?: string, skip?: string) => {
+export const getAliquotasINSS = async (filtro?: string, take?: string, skip?: string) => {
     try {
         let url = "/aliquotasINSS";
         let params = '';

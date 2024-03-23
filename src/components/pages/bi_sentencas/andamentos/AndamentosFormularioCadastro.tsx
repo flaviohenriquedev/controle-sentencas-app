@@ -13,7 +13,8 @@ export function AndamentosFormularioCadastro({entidade, editavel = false}: Props
         <form>
             <LineContent>
                 <LabelContainer title={`Descrição`}>
-                    <Input disabled={!editavel}
+                    <Input className={`w-80`}
+                           disabled={!editavel}
                            entidade={entidade}
                            field="descricao"/>
                 </LabelContainer>
