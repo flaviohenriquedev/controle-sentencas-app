@@ -11,7 +11,7 @@ interface Props {
     skip: number // page
     setSkip?: (n: number) => void
     setTake?: (n: number) => void
-    total: number
+    total?: number
     className?: string
 }
 

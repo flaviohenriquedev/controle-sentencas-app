@@ -19,6 +19,7 @@ interface Props<T extends EntidadePadrao> extends CommonInterface {
     componenteCadastro?: React.ReactElement
     entidade?: T
     scalamodal?: 'auto' | 'full'
+    totalDeRegistros?: number
 }
 
 export function PageSectionContainer({
@@ -31,7 +32,8 @@ export function PageSectionContainer({
                                          componenteCadastro,
                                          entidade,
                                          clearModal,
-                                         scalamodal
+                                         scalamodal,
+                                         totalDeRegistros
                                      }: Props<any>) {
     const [idModal, setIdModal] = useState<string>('')
     
@@ -56,7 +58,7 @@ export function PageSectionContainer({
         if (funcaoSalvarCadastro) {
             await funcaoSalvarCadastro(entidade)
         }
-        clearModal
+        clearModal && clearModal()
         closeModal(idModal)
     }
     
@@ -67,6 +69,7 @@ export function PageSectionContainer({
                     <S.Header>
                         <S.Label>
                             {titulo}
+                            {totalDeRegistros && totalDeRegistros > 0 ? ' | ' + totalDeRegistros + (totalDeRegistros > 1 ? ' registros' : ' registro') : null}
                         </S.Label>
 
                         <S.Botao tipo={`novo`}

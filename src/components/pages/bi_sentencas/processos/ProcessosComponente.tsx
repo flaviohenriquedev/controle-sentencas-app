@@ -29,7 +29,7 @@ export function ProcessosComponente() {
     
     const [take, setTake] = useState<number>(15)
     const [skip, setSkip] = useState<number>(0)
-    const [totalRegistros, setTotalRegistros] = useState<number>(0)
+    const [totalRegistros, setTotalRegistros] = useState<number>()
     
     useEffect(() => {
         setTake(15)
@@ -109,6 +109,7 @@ export function ProcessosComponente() {
     return (
         <Pagesection.Container titulo={tituloPagina}
                                tituloComponenteCadastro={tituloFormulario}
+                               totalDeRegistros={totalRegistros}
                                acaoExecutada={acaoExecutada}
                                entidade={entidade}
                                clearModal={clearModal}
@@ -120,7 +121,6 @@ export function ProcessosComponente() {
                                    entidade, editavel
                                )}/>}
         >
-            
             <TabelaComponente colunas={colunasTabelaProcessos()}
                               listaEntidade={listaEntidade}
                               take={take}

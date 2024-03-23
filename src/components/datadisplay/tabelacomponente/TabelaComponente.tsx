@@ -4,7 +4,7 @@ import {EntidadePadrao} from "@/class/EntidadePadrao";
 import {AcoesTabelaType} from "@/types/AcoesTabelaType";
 import {ColunaTabelaType} from "@/types/ColunaTabelaType";
 import {Table} from "@/components/datadisplay/table";
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useCallback, useState} from "react";
 import {get} from "lodash";
 import {LineContent} from "@/components/layout/linecontent/LineContent";
 import {Paginacao} from "@/components/datadisplay/pagination/Paginacao";
@@ -12,7 +12,6 @@ import {AxiosResponse} from "axios";
 import {PiFilePdfFill, PiFileXlsFill} from "react-icons/pi";
 import {gerarPDF} from "@/functions/functions";
 import * as S from './style'
-import {Loading} from "@/components/datadisplay/loading/Loading";
 
 interface Props<T extends EntidadePadrao> {
     colunas: ColunaTabelaType[]
@@ -24,7 +23,7 @@ interface Props<T extends EntidadePadrao> {
     skip: number,
     setSkip?: (n: number) => void
     setTake?: (n: number) => void
-    totalRegistros: number
+    totalRegistros?: number
     valorFiltro?: string
     funcaoFiltro?: (valor: string) => void
     funcaoGerarRelatorio?: (filtro?: string, take?: string, skip?: string) => Promise<AxiosResponse<any, any>>
@@ -49,20 +48,6 @@ export default function TabelaComponente({
                                          }: Props<any>) {
     
     const [colunasARenderizar, setColunasARenderizar] = useState<ColunaTabelaType[]>(colunas)
-    const [mostrarNenhumRegistro, setMostrarNenhumRegistro] = useState<boolean>(false)
-    
-    useEffect(() => {
-        let timeout: any;
-        
-        timeout = setTimeout(() => {
-            if (listaEntidade && listaEntidade.length === 0) {
-                setMostrarNenhumRegistro(true);
-            }
-        }, 2000);
-        
-        return () => clearTimeout(timeout);
-    }, [listaEntidade]);
-    
     
     const appendColunas = useCallback(() => {
         const possuiIndex = colunasARenderizar.some(coluna => coluna.field === 'index');
@@ -137,7 +122,16 @@ export default function TabelaComponente({
         if (funcaoGerarRelatorio)
             return gerarPDF(colunas, valorFiltro, funcaoGerarRelatorio, tituloPagina)
     }
-
+    
+    function renderNenhumRegistro() {
+        if (totalRegistros && totalRegistros === 0) {
+            return (
+                <S.NenhumRegistro>
+                    <S.NenhumRegistroSpan>Nenhum registro encontrado.</S.NenhumRegistroSpan>
+                </S.NenhumRegistro>
+            )
+        }
+    }
     
     return (
         <LineContent >
@@ -171,16 +165,11 @@ export default function TabelaComponente({
                     {renderizarLinhas()}
                 </Table.Body>
             </Table.Container>
-            {/*{mostrarNenhumRegistro && (*/}
-            {/*    <S.NenhumRegistro>*/}
-            {/*        <S.NenhumRegistroSpan>Nenhum registro encontrado</S.NenhumRegistroSpan>*/}
-            {/*    </S.NenhumRegistro>*/}
-            {/*)}*/}
-            
-            {/*{listaEntidade && listaEntidade.length === 0 && !mostrarNenhumRegistro && (*/}
-            {/*    <Loading tamanho={`sm`}/>*/}
-            {/*)}*/}
-            
+            {totalRegistros === 0 ? (
+               <S.NenhumRegistro>
+                   <S.NenhumRegistroSpan>Nenhum registro encontrado.</S.NenhumRegistroSpan>
+               </S.NenhumRegistro>
+            ) : null}
             <Paginacao
                 skip={skip}
                 take={take}

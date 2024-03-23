@@ -1,7 +1,7 @@
 interface Props {
     skip: number // page
     take: number // limit
-    total: number
+    total?: number
 }
 
 export const ELLIPSIS_LEFT = -10
@@ -44,7 +44,7 @@ function gerarPaginas(pagina: number, totalPaginas: number, take: number) {
 
 
 export function usePaginacao({skip, take, total}: Props) {
-    const totalDePaginas = Math.ceil(total / take)
+    const totalDePaginas = total ? Math.ceil(total / take) : 0
     const pagina = Math.trunc((skip / take) + 1)
     
     const paginas = gerarPaginas(pagina, totalDePaginas, take)

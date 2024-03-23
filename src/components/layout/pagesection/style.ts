@@ -30,6 +30,7 @@ export const Label = tw.label`
     max-h-[3rem]
     rounded-md
     font-bold
+    gap-2
 `
 
 export const Botao = tw.div<Props>`
