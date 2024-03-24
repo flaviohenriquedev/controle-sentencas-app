@@ -79,7 +79,7 @@ export function UsuariosComponente() {
         setEditavel(true)
     }
     
-    function handleSelecionarEntidade<T extends EntidadePadrao>(entidade: InstanceType<typeof classeEntidade>) {
+    function handleSelecionarEntidade(entidade: InstanceType<typeof classeEntidade>) {
         setAcaoExecutada('selecionar')
         setEditavel(false)
         setEntidade(entidade)
